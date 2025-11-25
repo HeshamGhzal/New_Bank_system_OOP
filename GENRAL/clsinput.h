@@ -21,7 +21,8 @@ public:
 		return value;
 	}
 
-	template<typename T> static T read_Number(string error_message = "Invalid input. Please enter a valid integer number: ")
+	template <typename T>
+	static T read_Number(string error_message = "Invalid input. Please enter a valid integer number: ")
 	{
 		T number;
 		while (!(cin >> number))
@@ -67,13 +68,14 @@ public:
 		}
 		return value;
 	}*/
-	template<typename T> static T read_number_between(T from, T to, string error_message = "Invalid input. Please enter a valid integer number: ")
+	template <typename T>
+	static T read_number_between(T from, T to, string error_message = "Invalid input. Please enter a valid integer number: ")
 	{
-		short number = read_Number<short>(error_message);
-		while (!Is_number_between<bool>(number, from, to))
+		short number = read_Number<T>(error_message);
+		while (!Is_number_between<T>(number, from, to))
 		{
 			cout << error_message;
-			number = read_Number<short>(error_message);
+			number = read_Number<T>(error_message);
 		}
 		return number;
 	}
@@ -131,7 +133,6 @@ public:
 		}
 
 		return false;
-
 	}
 	static bool Is_valid_Email(string email)
 	{
@@ -145,9 +146,13 @@ public:
 			return false;
 		return true;
 	}
-	template<typename T> static T Is_number_between(T number, T from, T to)
+	template <typename T>
+	static T Is_number_between(T number, T from, T to)
 	{
-		return number >= from && number <= to;
+		if (from <= to)
+			return number >= from && number <= to;
+		// allow from > to (user passed bounds in reverse)
+		return number >= to && number <= from;
 	}
 	/*static bool Is_number_between(short number, short from, short to)
 	{

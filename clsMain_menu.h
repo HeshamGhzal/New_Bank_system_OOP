@@ -4,10 +4,10 @@
 #include "clsScreen.h"
 #include "GENRAL/clsinput.h"
 #include "client/clsShow_client_list.h"
-#include"client/clsAdd_New_Client.h"
-// #include"clsDelete_clint.h"
-// #include"clsUpdate_client_info.h"
-// #include"clsFind_client.h"
+#include "client/clsAdd_New_Client.h"
+#include "client/clsDelete_Client.h"
+#include "client/clsUpdate_Client_Info.h"
+#include "client/clsFind_Client.h"
 // #include"clsTransaction_mene.h"
 // #include"clsManage_user.h"
 #include "GENRAL/Global.h"
@@ -54,15 +54,15 @@ private:
 	}
 	static void _Delete_client_screen()
 	{
-		// clsDelete_clint::show_delete_client();
+		clsDelete_clint::show_delete_client();
 	}
 	static void _Update_client_info_screen()
 	{
-		// clsUpdate_client_info::Show_update_client_screen();
+		clsUpdate_client_info::Show_update_client_screen();
 	}
 	static void _Find_client_screen()
 	{
-		// clsfind_client::Show_find_client_screen();
+		clsfind_client::Show_find_client_screen();
 	}
 	static void _Transaction_menu_screen()
 	{
@@ -173,7 +173,7 @@ public:
 
 		cout << string(37, ' ') << "[1]- Show Client list" << endl;
 		cout << string(37, ' ') << "[2]- Add New Client" << endl;
-		cout << string(37, ' ') << "[3] -Delete Client" << endl;
+		cout << string(37, ' ') << "[3]- Delete Client" << endl;
 		cout << string(37, ' ') << "[4]- Update Client Info" << endl;
 		cout << string(37, ' ') << "[5]- Find Client" << endl;
 		cout << string(37, ' ') << "[6]- Transaction Menu" << endl;
@@ -185,6 +185,4 @@ public:
 
 		_Perform_main_menu_option((_enmenu_option)_Read_main_menu_option());
 	}
-
-	// pause() removed — use clsutil::pause() for a cross-platform pause
 };

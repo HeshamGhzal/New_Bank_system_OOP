@@ -5,6 +5,7 @@
 #include"../GENRAL/clsPerson.h"
 #include<vector>
 #include"../GENRAL/clsinput.h"
+#include"../GENRAL/Global.h"
 
 
 class clsbank_client : public clsperson
@@ -138,8 +139,8 @@ private:
 		Transfer_record_line += to_string(_account_balance) + serarator;
 		Transfer_record_line += to_string(Destnation._account_balance) + serarator;
 		Transfer_record_line += to_string(Transfar_amunt) + serarator;
-		// Transfer_record_line += current_user.get_user_name();
-        Transfer_record_line += "Hesham"; // Temporary stub for current_user
+		Transfer_record_line += current_user.get_user_name();
+        // Transfer_record_line += "Hesham"; // Temporary stub for current_user
 		return Transfer_record_line;
 	}
 	void _Register_Transfers_Log_file(float Transfar_amunt, clsbank_client Destnation)
