@@ -1,50 +1,52 @@
 #pragma once
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 #include "clsScreen.h"
-#include"GENRAL/clsinput.h"
- #include"clsShow_client_list.h"
+#include "GENRAL/clsinput.h"
+#include "clsShow_client_list.h"
 // #include"clsAdd_new_client.h"
 // #include"clsDelete_clint.h"
 // #include"clsUpdate_client_info.h"
 // #include"clsFind_client.h"
 // #include"clsTransaction_mene.h"
 // #include"clsManage_user.h"
-#include"GENRAL/Global.h"
+#include "GENRAL/Global.h"
 // #include"clsShow_Register_list.h"
 // #include"clsShow_currency_screen.h"
 
-
-
 using namespace std;
 
-
-class clsMain_menu :protected clsscreen
+class clsMain_menu : protected clsscreen
 {
 private:
 	enum _enmenu_option
 	{
-		eShow_Client_list = 1, eAdd_New_Client = 2, eDelete_Client = 3,
-		eUpdate_Client_Info = 4, eFind_Client = 5,
-		eTransaction_Menu = 6, eMenu_Manage_Users = 7, eRegister = 8, eCurrency_Menu = 9, eLog_out = 10
+		eShow_Client_list = 1,
+		eAdd_New_Client = 2,
+		eDelete_Client = 3,
+		eUpdate_Client_Info = 4,
+		eFind_Client = 5,
+		eTransaction_Menu = 6,
+		eMenu_Manage_Users = 7,
+		eRegister = 8,
+		eCurrency_Menu = 9,
+		eLog_out = 10
 	};
 	static short _Read_main_menu_option()
 	{
 		cout << setw(30) << left << "" << "\tPlease choose what do you want to do ?[ 1 to 10 ] ";
 		short choise = clsinput::read_number_between<short>(1, 10,
-			"\nInvalid choice, Please enter a number between [1 to 10] : ");
+															"\nInvalid choice, Please enter a number between [1 to 10] : ");
 		return choise;
 	}
 	static void _Go_back_to_main_menu()
 	{
-		// // cout << setw(37) << left << "" << "\tPress any key to go back to main menu..." << endl;
-		pause();
-		clsutil::cls();
-		 ShowMinMenuOptions();
+		clsutil::pause();
+		ShowMinMenuOptions();
 	}
 	static void _Show_client_list_screen()
 	{
-		 clsShow_client_list::show_clients_list();
+		clsShow_client_list::show_clients_list();
 	}
 	static void _Add_new_client_screen()
 	{
@@ -91,7 +93,6 @@ private:
 		{
 			clsutil::cls();
 			_Show_client_list_screen();
-            pause();
 			_Go_back_to_main_menu();
 			break;
 		}
@@ -160,8 +161,6 @@ private:
 		}
 	}
 
-
-
 public:
 	static void ShowMinMenuOptions()
 	{
@@ -187,15 +186,5 @@ public:
 		_Perform_main_menu_option((_enmenu_option)_Read_main_menu_option());
 	}
 
-	static void pause()
-	{
-#ifdef _WIN32
-	    // Keep Windows behaviour (optionally hide the text)
-	    system("pause>nul");
-#else
-	    std::cout << "Press Enter to continue..." << std::flush;
-	    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-#endif
-	}
-
+	// pause() removed — use clsutil::pause() for a cross-platform pause
 };

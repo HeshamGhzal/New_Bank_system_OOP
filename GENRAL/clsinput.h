@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <limits>
 #include <string>
 #include "clsDate.h"
 class clsinput
@@ -29,6 +30,8 @@ public:
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cout << error_message;
 		}
+		// discard the rest of the line (e.g. the trailing '\n') so callers won't see leftover input
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		return number;
 	}
 	/*static int read_Int_Number(string error_message = "Invalid input. Please enter a valid integer number: ")

@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <limits>
 #include <string>
 //#include <cstdlib>
 #include <ctime>
@@ -17,9 +18,20 @@ public:
 		system("clear");
 #endif
 	}
+	
 	static void pause()
 	{
-		system("pause");
+#ifdef _WIN32
+		// Keep Windows behaviour (optionally hide the text)
+		system("pause>nul");
+#else
+	// On POSIX systems, prompt and wait for the next Enter key using getline.
+	// (Reading numeric input now consumes the trailing newline — so this will
+	// always wait for a fresh Enter from the user.)
+	std::cout << "Press Enter to continue..." << std::flush;
+	std::string _tmp;
+	std::getline(std::cin, _tmp);
+#endif
 	}
 
 
@@ -119,11 +131,7 @@ public:
 		cout << endl;
 	}
 
-	static void wait_for_key()
-	{
-		cout << "Press any key to continue...";
-		cin.ignore().get();
-	}
+	
 	static void swap(int& a, int& b)
 	{
 		int temp = a;
