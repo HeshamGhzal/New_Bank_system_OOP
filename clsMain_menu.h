@@ -3,8 +3,8 @@
 #include <string>
 #include "clsScreen.h"
 #include "GENRAL/clsinput.h"
-#include "clsShow_client_list.h"
-// #include"clsAdd_new_client.h"
+#include "client/clsShow_client_list.h"
+#include"client/clsAdd_New_Client.h"
 // #include"clsDelete_clint.h"
 // #include"clsUpdate_client_info.h"
 // #include"clsFind_client.h"
@@ -50,7 +50,7 @@ private:
 	}
 	static void _Add_new_client_screen()
 	{
-		// clsAdd_new_client::Add_new_client_screen();
+		clsAdd_new_client::Add_new_client_screen();
 	}
 	static void _Delete_client_screen()
 	{

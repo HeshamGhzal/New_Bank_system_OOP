@@ -2,8 +2,8 @@
 #include<iostream>
 #include<string>
 #include<iomanip>
-#include"client/clsBank_Client.h"
-#include"clsScreen.h"
+#include"clsBank_Client.h"
+#include"../clsScreen.h"
 
 using namespace std;
 
