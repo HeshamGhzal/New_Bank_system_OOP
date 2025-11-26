@@ -8,7 +8,7 @@
 #include "client/clsDelete_Client.h"
 #include "client/clsUpdate_Client_Info.h"
 #include "client/clsFind_Client.h"
-// #include"clsTransaction_mene.h"
+#include"client/clsTransaction_Menu.h"
 // #include"clsManage_user.h"
 #include "GENRAL/Global.h"
 // #include"clsShow_Register_list.h"
@@ -41,7 +41,7 @@ private:
 	}
 	static void _Go_back_to_main_menu()
 	{
-		clsutil::pause();
+		// clsutil::pause();
 		ShowMinMenuOptions();
 	}
 	static void _Show_client_list_screen()
@@ -66,7 +66,7 @@ private:
 	}
 	static void _Transaction_menu_screen()
 	{
-		// clsTransaction_mene::show_Transaction_menu_option();
+		clsTransaction_Menu::show_Transaction_menu_option();
 	}
 	static void _Manage_users_screen()
 	{

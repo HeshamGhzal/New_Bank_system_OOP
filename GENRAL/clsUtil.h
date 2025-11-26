@@ -19,20 +19,11 @@ public:
 #endif
 	}
 	
-	static void pause()
-	{
-#ifdef _WIN32
-		// Keep Windows behaviour (optionally hide the text)
-		system("pause>nul");
-#else
-	// On POSIX systems, prompt and wait for the next Enter key using getline.
-	// (Reading numeric input now consumes the trailing newline — so this will
-	// always wait for a fresh Enter from the user.)
-	std::cout << "Press Enter to continue..." << std::flush;
-	std::string _tmp;
-	std::getline(std::cin, _tmp);
-#endif
-	}
+	static void pause() {
+    std::cout << "Press Enter to continue..." << std::flush;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+    std::cin.get(); 
+}
 
 
 	static void random()
