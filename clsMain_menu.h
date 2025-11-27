@@ -12,7 +12,7 @@
 // #include"clsManage_user.h"
 #include "GENRAL/Global.h"
 // #include"clsShow_Register_list.h"
-// #include"clsShow_currency_screen.h"
+#include"Currency/clsShow_Currency_Screen.h"
 
 using namespace std;
 
@@ -79,7 +79,7 @@ private:
 	}
 	static void _Currency_Exchange()
 	{
-		// clsShow_currency_screen::Show_Currency_menu();
+		clsShow_currency_screen::Show_Currency_menu();
 	}
 	static void _Log_out_screen()
 	{
