@@ -1,11 +1,11 @@
 #pragma once
 #include<iostream>
-#include"GENRAL/clsPerson.h"
+#include"../GENRAL/clsPerson.h"
 #include <string>
 #include<vector>
 #include<fstream>
-#include"GENRAL/clsDate.h"
-#include"GENRAL/clsUtil.h"
+#include"../GENRAL/clsDate.h"
+#include"../GENRAL/clsUtil.h"
 
 class clsbank_user :public clsperson
 {
