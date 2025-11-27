@@ -11,7 +11,7 @@
 #include"client/clsTransaction_Menu.h"
 #include"USER/clsManage_User_Screen.h"
 #include "GENRAL/Global.h"
-// #include"clsShow_Register_list.h"
+#include"REGISTER/clsRegister_List.h"
 #include"Currency/clsShow_Currency_Screen.h"
 
 using namespace std;
@@ -75,7 +75,7 @@ private:
 	}
 	static void _Register_screen()
 	{
-		// clsShow_Register_list::show_Register_list();
+		clsShow_Register_list::show_Register_list();
 	}
 	static void _Currency_Exchange()
 	{
