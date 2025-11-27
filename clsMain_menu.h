@@ -9,7 +9,7 @@
 #include "client/clsUpdate_Client_Info.h"
 #include "client/clsFind_Client.h"
 #include"client/clsTransaction_Menu.h"
-// #include"clsManage_user.h"
+#include"USER/clsManage_User_Screen.h"
 #include "GENRAL/Global.h"
 // #include"clsShow_Register_list.h"
 #include"Currency/clsShow_Currency_Screen.h"
@@ -71,7 +71,7 @@ private:
 	}
 	static void _Manage_users_screen()
 	{
-		// clsManage_user::Show_Manage_user_menu();
+		clsManage_user::Show_Manage_user_menu();
 	}
 	static void _Register_screen()
 	{
