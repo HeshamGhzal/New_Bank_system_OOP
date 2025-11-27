@@ -201,7 +201,6 @@ public:
 	{
 		return _User_name;
 	}
-	// MSVC-specific __declspec(property) removed for portability; use get_user_name()/set_user_name()
 
 	void set_Password(string Password)
 	{
@@ -211,7 +210,6 @@ public:
 	{
 		return  _Password;
 	}
-	// MSVC-specific __declspec(property) removed for portability; use get_Password()/set_Password()
 
 	void SetPermissions(int Permissions)
 	{
@@ -221,7 +219,6 @@ public:
 	{
 		return _Permissions;
 	}
-	// MSVC-specific __declspec(property) removed for portability; use GetPermissions()/SetPermissions()
 
 	static clsbank_user find_user(string User_name)
 	{

@@ -25,10 +25,10 @@ private:
 public:
 	static void Show_Transfer_logs_screen()
 	{
-		/*if (check_permission_right(current_user.pRegister_list))
+		if (check_permission_right(current_user.pRegister_list))
 		{
 			return;
-		}*/
+		}
 		vector<clsbank_client::stTransfer_log>vuser = clsbank_client::get_Transfers_log_list_from_file();
 		string title = "Transfer logs Screen\n";
 		string sub_title = to_string(vuser.size()) + " Transfer logs System";
