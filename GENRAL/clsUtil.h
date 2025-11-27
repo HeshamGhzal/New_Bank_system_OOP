@@ -19,8 +19,10 @@ public:
 #endif
 	}
 	
-	static void pause() {
-    std::cout << "Press Enter to continue..." << std::flush;
+	static void pause()
+	 {
+    // std::cout << "Press Enter to continue..." ;
+	std::cout<< std::flush;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     std::cin.get(); 
 }

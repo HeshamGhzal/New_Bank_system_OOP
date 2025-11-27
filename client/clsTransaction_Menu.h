@@ -2,10 +2,10 @@
 #include "../clsScreen.h"
 #include "../GENRAL/clsinput.h"
 #include "clsDeposit.h"
-// #include"clsWithdraw.h"
-// #include"clsTotal_balance.h"
-// #include"clsShow_Transfer_Screen.h"
-// #include"clsShow_Transfer_logs.h"
+#include"clsWithdraw.h"
+#include"clsTotal_Balance.h"
+#include"clsShow_Transfer_Screen.h"
+#include"clsShow_Transfer_Logs.h"
 
 // using namespace std;
 
@@ -30,7 +30,7 @@ private:
 	}
 	static void _Go_back_to_transaction_menu()
 	{
-		cout << setw(37) << left << "" << "\tPress any key to go back to Transaction menu...";
+		cout << setw(37) << left << "" << "\tPress [Enter] key to go back to Transaction menu...";
 		clsutil::pause();
 		show_Transaction_menu_option();
 	}
@@ -40,19 +40,19 @@ private:
 	}
 	static void _Withdraw_screen()
 	{
-		// clsWithdraw::Show_Withdraw_screen();
+		clsWithdraw::Show_Withdraw_screen();
 	}
 	static void _Show_Total_balance_screen()
 	{
-		// clsTotal_balance::Show_total_clients_balance();
+		clsTotal_balance::Show_total_clients_balance();
 	}
 	static void _Show_Transfer_screen()
 	{
-		// clsShow_Transfer_Screen::Show_Transfer_Screen();
+		clsShow_Transfer_Screen::Show_Transfer_Screen();
 	}
 	static void _Show_Transfer_logs_screen()
 	{
-		// clsShow_Transfer_logs::Show_Transfer_logs_screen();
+		clsShow_Transfer_logs::Show_Transfer_logs_screen();
 	}
 	static void _Perform_transaction_menu_option(_enmenu_option menu_option)
 	{

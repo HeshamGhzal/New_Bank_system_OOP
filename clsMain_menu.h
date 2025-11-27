@@ -41,7 +41,8 @@ private:
 	}
 	static void _Go_back_to_main_menu()
 	{
-		// clsutil::pause();
+		cout << setw(37) << left << "" << "\tPress [Enter] key to go back to Main menu...";
+		clsutil::pause();
 		ShowMinMenuOptions();
 	}
 	static void _Show_client_list_screen()
