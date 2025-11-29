@@ -1,4 +1,3 @@
-#pragma once
 #include"clsBank_user.h"
 #include"../GENRAL/clsinput.h"
 #include"../clsScreen.h"
@@ -128,6 +127,9 @@ public:
 		{
 		case clsbank_user::sv_fail_empty_object:
 			cout << "Error : User object is empty , can not save it " << endl;
+			break;
+		case clsbank_user::sv_fail_user_name_exist:
+			cout << "Error : User name already exists , can not save it " << endl;
 			break;
 		case clsbank_user::sv_success:
 			cout << "User info updated successfully :-) " << endl;
