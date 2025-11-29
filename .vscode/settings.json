@@ -54,5 +54,19 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp"
-    }
+    },
+    "cSpell.words": [
+        "acceess",
+        "choise",
+        "clsbank",
+        "Delet",
+        "enmode",
+        "ensave",
+        "permition",
+        "prepar",
+        "Regester",
+        "Registar",
+        "serarator",
+        "Tranactions"
+    ]
 }

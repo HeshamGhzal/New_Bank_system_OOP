@@ -43,7 +43,7 @@ private:
 	}
 	static void _Go_back_to_user_menu()
 	{
-		cout << "\n" << setw(39) << "" << "Press Any Kay To Go Back To User Menu ";
+		cout << "\n" << setw(39) << "" << "Press [Enter] Kay To Go Back To User Menu ";
 		clsutil::pause();
 		clsutil::cls();
 		Show_Manage_user_menu();
