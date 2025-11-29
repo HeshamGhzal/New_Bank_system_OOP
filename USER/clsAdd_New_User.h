@@ -54,43 +54,43 @@ private:
 		{
 			permission += clsbank_user::pListClients;
 		}
-		cout << "\nTo Add new client, permission ? [Y] or [N] ";
+		cout << "\n Add new client, permission ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{
 			permission += clsbank_user::pAddNewClient;
 		}
-		cout << "\nTo Delete client, permission ? [Y] or [N] ";
+		cout << "\n Delete client, permission ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{
 			permission += clsbank_user::pDeleteClient;
 		}
-		cout << "\nTo Update client, permission ? [Y] or [N] ";
+		cout << "\n Update client, permission ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{
 			permission += clsbank_user::pUpdateClients;
 		}
-		cout << "\nTo Find client, permission ? [Y] or [N] ";
+		cout << "\n Find client, permission ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{
 			permission += clsbank_user::pFindClient;
 		}
-		cout << "\nTo Transaction, permission ? [Y] or [N] ";
+		cout << "\n Transaction, permission ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{
 			permission += clsbank_user::pTranactions;
 		}
-		cout << "\nTo Manage, permission ? [Y] or [N] ";
+		cout << "\n Manage, permission ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{
 			permission += clsbank_user::pManageUsers;
 		}
-		cout << "\nTo Show Register Login list ? [Y] or [N] ";
+		cout << "\n Show Register Login list ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{

@@ -7,17 +7,17 @@ class clsUpdate_user_info :protected clsscreen
 private:
 	static void _Read_user_info(clsbank_user& user)
 	{
-		cout << setw(37) << left << "" << "Enter First Name : ";
+		cout << setw(37) << left << "" << "Enter First Name ["<<user.get_First_Name()<<"] : ";
 		user.set_First_Name( clsinput::Read_String()) ;
-		cout << setw(37) << left << "" << "Enter Last Name : ";
+		cout << setw(37) << left << "" << "Enter Last Name ["<<user.get_Last_Name()<<"] : ";
 		user.set_Last_Name(clsinput::Read_String()) ;
-		cout << setw(37) << left << "" << "Enter Email : ";
+		cout << setw(37) << left << "" << "Enter Email ["<<user.get_Email()<<"] : ";
 		user.set_Email(clsinput::Read_String());
-		cout << setw(37) << left << "" << "Enter Phone : ";
+		cout << setw(37) << left << "" << "Enter Phone ["<<user.get_Phone()<<"] : ";
 		user.set_Phone(clsinput::Read_String()) ;
-		cout << setw(37) << left << "" << "Enter Password : ";
+		cout << setw(37) << left << "" << "Enter Password ["<<user.get_Password()<<"] : ";
 		user.set_Password(clsinput::Read_String()) ;
-		cout << setw(37) << left << "" << "Enter Permission : ";
+		cout << setw(37) << left << "" << "Enter Permission ["<<user.GetPermissions()<<"] : ";
 		user.SetPermissions(_Read_permission_to_set()) ;
 	}
 
@@ -46,49 +46,49 @@ private:
 		}
 
 		cout << "Do you wont to give access to user to :" << endl;
-		cout << "\nTo Show client list, permission ? [Y] or [N] ";
+		cout << "\n Show client list, permission ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{
 			permission += clsbank_user::pListClients;
 		}
-		cout << "\nTo Add new client, permission ? [Y] or [N] ";
+		cout << "\n Add new client, permission ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{
 			permission += clsbank_user::pAddNewClient;
 		}
-		cout << "\nTo Delete client, permission ? [Y] or [N] ";
+		cout << "\n Delete client, permission ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{
 			permission += clsbank_user::pDeleteClient;
 		}
-		cout << "\nTo Update client, permission ? [Y] or [N] ";
+		cout << "\n Update client, permission ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{
 			permission += clsbank_user::pUpdateClients;
 		}
-		cout << "\nTo Find client, permission ? [Y] or [N] ";
+		cout << "\n Find client, permission ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{
 			permission += clsbank_user::pFindClient;
 		}
-		cout << "\nTo Transaction, permission ? [Y] or [N] ";
+		cout << "\n Transaction, permission ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{
 			permission += clsbank_user::pTranactions;
 		}
-		cout << "\nTo Manage, permission ? [Y] or [N] ";
+		cout << "\n Manage, permission ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{
 			permission += clsbank_user::pManageUsers;
 		}
-		cout << "\nTo Show Register Login list ? [Y] or [N] ";
+		cout << "\n Show Register Login list ? [Y] or [N] ";
 		cin >> answer;
 		if (answer == tolower('y'))
 		{
