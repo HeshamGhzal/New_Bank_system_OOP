@@ -111,7 +111,7 @@ public:
 		return 	count_lower_litter(_value);
 
 	}
-	static vector<string> splet_each_word_in_string(string s, string seprator = " ")
+	static vector<string> spelt_each_word_in_string(string s, string seprator = " ")
 	{
 		vector<string> vs;
 		int pos = s.find(seprator);
@@ -132,9 +132,9 @@ public:
 			vs.push_back(s);
 		return vs;
 	}
-	vector<string> splet_each_word_in_string()
+	vector<string> spelt_each_word_in_string()
 	{
-		return splet_each_word_in_string(_value);
+		return spelt_each_word_in_string(_value);
 	}
 	static void read_vector(vector<string> vs)
 	{

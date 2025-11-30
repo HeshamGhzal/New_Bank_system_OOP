@@ -44,7 +44,7 @@ public:
 	clsdate(string stdate)
 	{
 		vector<string>vdate;
-		vdate = clsstring::splet_each_word_in_string(stdate, "/");
+		vdate = clsstring::spelt_each_word_in_string(stdate, "/");
 		_day = stoi(vdate.at(0));
 		_month = stoi(vdate.at(1));
 		_year = stoi(vdate.at(2));
@@ -134,7 +134,7 @@ public:
 
 	}
 
-	static short day_Order_from_Gregorian_calender_overloded(clsdate date)
+	static short day_Order_from_Gregorian_calender_overloaded(clsdate date)
 	{
 
 		return day_Order_from_Gregorian_calender(date._day, date._month, date._year);
@@ -240,12 +240,12 @@ public:
 			cout << setw(5) << day;
 	}
 
-	static string month_of_year(short month_nunber)
+	static string month_of_year(short month_number)
 	{
-		if (month_nunber < 1 || month_nunber>12)return "Month Error";
+		if (month_number < 1 || month_number>12)return "Month Error";
 		string month_arr[] = { "","January","February","March","April","May","June"
 			,"July","August","September","October","November","December" };
-		return month_arr[month_nunber];
+		return month_arr[month_number];
 	}
 	string month_of_year()
 	{
@@ -360,7 +360,7 @@ public:
 		}
 		return false;
 	}
-	bool Is_currnt_Date_Befor_Date2(clsdate date2)
+	bool Is_current_Date_Befor_Date2(clsdate date2)
 	{
 		return Is_Date1_Befor_Date2(*this, date2);
 	}
@@ -369,7 +369,7 @@ public:
 	{
 		return(!(Is_Date1_Befor_Date2(date1, date2)) && !(Is_Date1_Equal_Date2(date1, date2)));
 	}
-	bool Is_currnt_Date_After_Date2(clsdate date2)
+	bool Is_current_Date_After_Date2(clsdate date2)
 	{
 		return Is_Date1_After_Date2(*this, date2);
 	}
@@ -380,7 +380,7 @@ public:
 			return true;
 		return false;
 	}
-	bool Is_currnt_Date_Equal_Date2(clsdate date2)
+	bool Is_current_Date_Equal_Date2(clsdate date2)
 	{
 		return Is_Date1_Equal_Date2(*this, date2);
 	}
@@ -411,7 +411,7 @@ public:
 		return Is_date_between(*this, from, to);
 	}
 
-	static clsdate Increas_date_by_one(clsdate date)
+	static clsdate Increase_date_by_one(clsdate date)
 	{
 		if (Is_Last_day_in_month(date))
 		{
@@ -431,14 +431,14 @@ public:
 			date._day++;
 		return date;
 	}
-	clsdate Increas_date_by_one()
+	clsdate Increase_date_by_one()
 	{
-		return Increas_date_by_one(*this);
+		return Increase_date_by_one(*this);
 	}
 
-	static int diffrance_between_two_dates(clsdate date1, clsdate date2, bool include_end_day = 0)
+	static int difference_between_two_dates(clsdate date1, clsdate date2, bool include_end_day = 0)
 	{
-		int deffrance = 0;
+		int difference = 0;
 		short flag_swap = 1;
 		if (Is_Date1_Befor_Date2(date1, date2))
 		{
@@ -448,71 +448,71 @@ public:
 
 		while (Is_Date1_Befor_Date2(date1, date2))
 		{
-			date1 = Increas_date_by_one(date1);
-			deffrance++;
+			date1 = Increase_date_by_one(date1);
+			difference++;
 		}
-		return(include_end_day ? ++deffrance * flag_swap : deffrance * flag_swap);
+		return(include_end_day ? ++difference * flag_swap : difference * flag_swap);
 	}
-	int diffrance_between_two_dates(clsdate date2)
+	int difference_between_two_dates(clsdate date2)
 	{
-		return diffrance_between_two_dates(*this, date2);
+		return difference_between_two_dates(*this, date2);
 	}
 
 	static int Birth_days_in_days(clsdate date1, clsdate date2, bool include_end_day = 0)
 	{
-		int deffrance = 0;
+		int difference = 0;
 		while (Is_Date1_Befor_Date2(date1, date2))
 		{
-			date1 = Increas_date_by_one(date1);
-			deffrance++;
+			date1 = Increase_date_by_one(date1);
+			difference++;
 		}
-		return(include_end_day ? ++deffrance : deffrance);
+		return(include_end_day ? ++difference : difference);
 	}
 	int Birth_days_in_days(clsdate date_of_birth)
 	{
 		return Birth_days_in_days(date_of_birth, *this);
 	}
 
-	static clsdate Increas_date_by_x_days(int xdays, clsdate date)
+	static clsdate Increase_date_by_x_days(int xdays, clsdate date)
 	{
 		for (int i = 0; i < xdays; i++)
 		{
-			date = Increas_date_by_one(date);
+			date = Increase_date_by_one(date);
 		}
 		return date;
 	}
-	clsdate Increas_date_by_x_days(int xdays)
+	clsdate Increase_date_by_x_days(int xdays)
 	{
-		return Increas_date_by_x_days(xdays, *this);
+		return Increase_date_by_x_days(xdays, *this);
 	}
 
-	static clsdate Increas_date_by_one_week(clsdate date)
+	static clsdate Increase_date_by_one_week(clsdate date)
 	{
 		for (int i = 0; i < 7; i++)
 		{
-			date = Increas_date_by_one(date);
+			date = Increase_date_by_one(date);
 		}
 		return date;
 	}
-	clsdate Increas_date_by_one_week()
+	clsdate Increase_date_by_one_week()
 	{
-		return Increas_date_by_one_week(*this);
+		return Increase_date_by_one_week(*this);
 	}
 
-	static clsdate Increas_date_by_x_weeks(int xweeks, clsdate date)
+	static clsdate Increase_date_by_x_weeks(int xweeks, clsdate date)
 	{
 		for (int i = 0; i < xweeks; i++)
 		{
-			date = Increas_date_by_one_week(date);
+			date = Increase_date_by_one_week(date);
 		}
 		return date;
 	}
-	clsdate Increas_date_by_x_weeks(int xweeks)
+	clsdate Increase_date_by_x_weeks(int xweeks)
 	{
-		return  Increas_date_by_x_weeks(xweeks, *this);
+		return  Increase_date_by_x_weeks(xweeks, *this);
 	}
 
-	static clsdate Increas_date_by_one_month(clsdate date)
+	static clsdate Increase_date_by_one_month(clsdate date)
 	{
 		if (Is_Last_month_in_year(date))
 		{
@@ -529,101 +529,101 @@ public:
 		}
 		return date;
 	}
-	clsdate Increas_date_by_one_month()
+	clsdate Increase_date_by_one_month()
 	{
-		return Increas_date_by_one_month(*this);
+		return Increase_date_by_one_month(*this);
 	}
 
-	static clsdate Increas_date_by_x_months(int xmonths, clsdate date)
+	static clsdate Increase_date_by_x_months(int xmonths, clsdate date)
 	{
 		for (int i = 0; i < xmonths; i++)
 		{
-			date = Increas_date_by_one_month(date);
+			date = Increase_date_by_one_month(date);
 		}
 		return date;
 	}
-	clsdate Increas_date_by_x_months(int xmonths)
+	clsdate Increase_date_by_x_months(int xmonths)
 	{
-		return Increas_date_by_x_months(xmonths, *this);
+		return Increase_date_by_x_months(xmonths, *this);
 	}
 
-	static clsdate Increas_date_by_one_year(clsdate date)
+	static clsdate Increase_date_by_one_year(clsdate date)
 	{
 		date._year++;
 		return date;
 	}
-	clsdate Increas_date_by_one_year()
+	clsdate Increase_date_by_one_year()
 	{
-		return  Increas_date_by_one_year(*this);
+		return  Increase_date_by_one_year(*this);
 	}
 
-	static clsdate Increas_date_by_x_year(int xyear, clsdate date)
+	static clsdate Increase_date_by_x_year(int xyear, clsdate date)
 	{
 		for (int i = 0; i < xyear; i++)
 		{
-			date = Increas_date_by_one_year(date);
+			date = Increase_date_by_one_year(date);
 		}
 		return date;
 	}
-	clsdate Increas_date_by_x_year(int xyear)
+	clsdate Increase_date_by_x_year(int xyear)
 	{
-		return Increas_date_by_x_year(xyear, *this);
+		return Increase_date_by_x_year(xyear, *this);
 	}
 
-	static clsdate Increas_date_by_x_year_faster(int xyear, clsdate date)
+	static clsdate Increase_date_by_x_year_faster(int xyear, clsdate date)
 	{
 		date._year += xyear;
 		return date;
 	}
-	clsdate Increas_date_by_x_year_faster(int xyear)
+	clsdate Increase_date_by_x_year_faster(int xyear)
 	{
-		return Increas_date_by_x_year_faster(xyear, *this);
+		return Increase_date_by_x_year_faster(xyear, *this);
 	}
 
-	static clsdate Increas_date_by_one_decade(clsdate date)
+	static clsdate Increase_date_by_one_decade(clsdate date)
 	{
 		date._year += 10;
 		return date;
 	}
-	clsdate Increas_date_by_one_decade()
+	clsdate Increase_date_by_one_decade()
 	{
-		return Increas_date_by_one_decade(*this);
+		return Increase_date_by_one_decade(*this);
 	}
 
-	static clsdate Increas_date_by_x_decades(int xdecades, clsdate date)
+	static clsdate Increase_date_by_x_decades(int xdecades, clsdate date)
 	{
 		for (int i = 0; i < xdecades; i++)
 		{
-			date = Increas_date_by_one_decade(date);
+			date = Increase_date_by_one_decade(date);
 		}
 		return date;
 	}
-	clsdate Increas_date_by_x_decades(int xdecades)
+	clsdate Increase_date_by_x_decades(int xdecades)
 	{
-		return Increas_date_by_x_decades(xdecades, *this);
+		return Increase_date_by_x_decades(xdecades, *this);
 	}
 
-	static clsdate Increas_date_by_one_century(clsdate date)
+	static clsdate Increase_date_by_one_century(clsdate date)
 	{
 		date._year += 100;
 		return date;
 	}
-	clsdate Increas_date_by_one_century()
+	clsdate Increase_date_by_one_century()
 	{
-		return Increas_date_by_one_century(*this);
+		return Increase_date_by_one_century(*this);
 	}
 
-	static clsdate Increas_date_by_one_Milleium(clsdate date)
+	static clsdate Increase_date_by_one_Millinum(clsdate date)
 	{
 		date._year += 1000;
 		return date;
 	}
-	clsdate Increas_date_by_one_Milleium()
+	clsdate Increase_date_by_one_Millinum()
 	{
-		return  Increas_date_by_one_Milleium(*this);
+		return  Increase_date_by_one_Millinum(*this);
 	}
 
-	static clsdate Decreas_date_by_one(clsdate date)
+	static clsdate Decrease_date_by_one(clsdate date)
 	{
 		if (date._day == 1)
 		{
@@ -644,51 +644,51 @@ public:
 			date._day--;
 		return date;
 	}
-	clsdate Decreas_date_by_one()
+	clsdate Decrease_date_by_one()
 	{
-		return Decreas_date_by_one(*this);
+		return Decrease_date_by_one(*this);
 	}
 
-	static clsdate Decreas_date_by_x_days(int xdays, clsdate date)
+	static clsdate Decrease_date_by_x_days(int xdays, clsdate date)
 	{
 		for (int i = 0; i < xdays; i++)
 		{
-			date = Decreas_date_by_one(date);
+			date = Decrease_date_by_one(date);
 		}
 		return date;
 	}
-	clsdate Decreas_date_by_x_days(int xdays)
+	clsdate Decrease_date_by_x_days(int xdays)
 	{
-		return Decreas_date_by_x_days(xdays, *this);
+		return Decrease_date_by_x_days(xdays, *this);
 	}
 
-	static clsdate Decreas_date_by_one_week(clsdate date)
+	static clsdate Decrease_date_by_one_week(clsdate date)
 	{
 		for (int i = 0; i < 7; i++)
 		{
-			date = Decreas_date_by_one(date);
+			date = Decrease_date_by_one(date);
 		}
 		return date;
 	}
-	clsdate Decreas_date_by_one_week()
+	clsdate Decrease_date_by_one_week()
 	{
-		return Decreas_date_by_one_week(*this);
+		return Decrease_date_by_one_week(*this);
 	}
 
-	static clsdate Decreas_date_by_x_weeks(int xweeks, clsdate date)
+	static clsdate Decrease_date_by_x_weeks(int xweeks, clsdate date)
 	{
 		for (int i = 0; i < xweeks; i++)
 		{
-			date = Decreas_date_by_one_week(date);
+			date = Decrease_date_by_one_week(date);
 		}
 		return date;
 	}
-	clsdate Decreas_date_by_x_weeks(int xweeks)
+	clsdate Decrease_date_by_x_weeks(int xweeks)
 	{
-		return Decreas_date_by_x_weeks(xweeks, *this);
+		return Decrease_date_by_x_weeks(xweeks, *this);
 	}
 
-	static clsdate Decreas_date_by_one_month(clsdate date)
+	static clsdate Decrease_date_by_one_month(clsdate date)
 	{
 		if (date._month == 1)
 		{
@@ -705,108 +705,108 @@ public:
 		}
 		return date;
 	}
-	clsdate Decreas_date_by_one_month()
+	clsdate Decrease_date_by_one_month()
 	{
-		return Decreas_date_by_one_month(*this);
+		return Decrease_date_by_one_month(*this);
 	}
 
-	static clsdate Decreas_date_by_x_months(int xmonths, clsdate date)
+	static clsdate Decrease_date_by_x_months(int xmonths, clsdate date)
 	{
 		for (int i = 0; i < xmonths; i++)
 		{
-			date = Decreas_date_by_one_month(date);
+			date = Decrease_date_by_one_month(date);
 		}
 		return date;
 	}
-	clsdate Decreas_date_by_x_months(int xmonths)
+	clsdate Decrease_date_by_x_months(int xmonths)
 	{
-		return Decreas_date_by_x_months(xmonths, *this);
+		return Decrease_date_by_x_months(xmonths, *this);
 	}
 
-	static clsdate Decreas_date_by_one_year(clsdate date)
+	static clsdate Decrease_date_by_one_year(clsdate date)
 	{
 		date._year--;
 		return date;
 	}
-	clsdate Decreas_date_by_one_year()
+	clsdate Decrease_date_by_one_year()
 	{
-		return Decreas_date_by_one_year(*this);
+		return Decrease_date_by_one_year(*this);
 	}
 
-	static clsdate Decreas_date_by_x_year(int xyear, clsdate date)
+	static clsdate Decrease_date_by_x_year(int xyear, clsdate date)
 	{
 		for (int i = 0; i < xyear; i++)
 		{
-			date = Decreas_date_by_one_year(date);
+			date = Decrease_date_by_one_year(date);
 		}
 		return date;
 	}
-	clsdate Decreas_date_by_x_year(int xyear)
+	clsdate Decrease_date_by_x_year(int xyear)
 	{
-		return Decreas_date_by_x_year(xyear, *this);
+		return Decrease_date_by_x_year(xyear, *this);
 	}
 
-	static clsdate Decreas_date_by_x_year_faster(int xyear, clsdate date)
+	static clsdate Decrease_date_by_x_year_faster(int xyear, clsdate date)
 	{
 		date._year -= xyear;
 		return date;
 	}
-	clsdate Decreas_date_by_x_year_faster(int xyear)
+	clsdate Decrease_date_by_x_year_faster(int xyear)
 	{
-		return Decreas_date_by_x_year_faster(xyear, *this);
+		return Decrease_date_by_x_year_faster(xyear, *this);
 	}
 
-	static clsdate Decreas_date_by_one_decade(clsdate date)
+	static clsdate Decrease_date_by_one_decade(clsdate date)
 	{
 		date._year -= 10;
 		return date;
 	}
-	clsdate Decreas_date_by_one_decade()
+	clsdate Decrease_date_by_one_decade()
 	{
-		return Decreas_date_by_one_decade(*this);
+		return Decrease_date_by_one_decade(*this);
 	}
 
-	static clsdate Decreas_date_by_x_decades(int xdecades, clsdate date)
+	static clsdate Decrease_date_by_x_decades(int xdecades, clsdate date)
 	{
 		for (int i = 0; i < xdecades; i++)
 		{
-			date = Decreas_date_by_one_decade(date);
+			date = Decrease_date_by_one_decade(date);
 		}
 		return date;
 	}
-	clsdate Decreas_date_by_x_decades(int xdecades)
+	clsdate Decrease_date_by_x_decades(int xdecades)
 	{
-		return Decreas_date_by_x_decades(xdecades, *this);
+		return Decrease_date_by_x_decades(xdecades, *this);
 	}
 
-	static clsdate Decreas_date_by_x_decades_faster(int xdecades, clsdate date)
+	static clsdate Decrease_date_by_x_decades_faster(int xdecades, clsdate date)
 	{
 		date._year -= (xdecades * 10);
 		return date;
 	}
-	clsdate Decreas_date_by_x_decades_faster(int xdecades)
+	clsdate Decrease_date_by_x_decades_faster(int xdecades)
 	{
-		return Decreas_date_by_x_decades_faster(xdecades, *this);
+		return Decrease_date_by_x_decades_faster(xdecades, *this);
 	}
 
-	static clsdate Decreas_date_by_one_century(clsdate date)
+	static clsdate Decrease_date_by_one_century(clsdate date)
 	{
 		date._year -= 100;
 		return date;
 	}
-	clsdate Decreas_date_by_one_century()
+	clsdate Decrease_date_by_one_century()
 	{
-		return Decreas_date_by_one_century(*this);
+		return Decrease_date_by_one_century(*this);
 	}
 
-	static clsdate Decreas_date_by_one_Milleium(clsdate date)
+	static clsdate Decrease_date_by_one_Millinum(clsdate date)
 	{
 		date._year -= 1000;
 		return date;
 	}
-	clsdate Decreas_date_by_one_Milleium()
+	clsdate Decrease_date_by_one_Millinum()
 	{
-		return Decreas_date_by_one_Milleium(*this);
+		return Decrease_date_by_one_Millinum(*this);
 	}
 
 	static bool Is_Last_day_in_month(clsdate date)
@@ -830,7 +830,7 @@ public:
 
 	static bool Is_End_of_week(clsdate date)
 	{
-		short Day_order = day_Order_from_Gregorian_calender_overloded(date);
+		short Day_order = day_Order_from_Gregorian_calender_overloaded(date);
 		return(Day_order == 6);
 	}
 	bool Is_End_of_week()
@@ -840,7 +840,7 @@ public:
 
 	static bool Is_WeekEnd(clsdate date)
 	{
-		short Day_order = day_Order_from_Gregorian_calender_overloded(date);
+		short Day_order = day_Order_from_Gregorian_calender_overloaded(date);
 		return(Day_order == 5 || Day_order == 6);
 	}
 	bool Is_WeekEnd()
@@ -859,7 +859,7 @@ public:
 
 	static short Days_until_weekEnd(clsdate date)
 	{
-		short day_index = day_Order_from_Gregorian_calender_overloded(date);
+		short day_index = day_Order_from_Gregorian_calender_overloaded(date);
 		short days = 0;
 		for (short i = day_index; i < 5; i++)
 		{
@@ -874,7 +874,7 @@ public:
 
 	static short Days_until_end_of_week(clsdate date)
 	{
-		short day_index = day_Order_from_Gregorian_calender_overloded(date);
+		short day_index = day_Order_from_Gregorian_calender_overloaded(date);
 		return (6 - day_index);
 	}
 	short Days_until_end_of_week()
@@ -889,7 +889,7 @@ public:
 		date2._day = month_days_of_year(date._month, date._year);
 		date2._month = date._month;
 		date2._year = date._year;
-		short days = diffrance_between_two_dates(date, date2, 1);
+		short days = difference_between_two_dates(date, date2, 1);
 		return days;
 	}
 	short Days_until_end_of_month()
@@ -904,7 +904,7 @@ public:
 		date2._day = 31;
 		date2._month = 12;
 		date2._year = date._year;
-		short days = diffrance_between_two_dates(date, date2, 1);
+		short days = difference_between_two_dates(date, date2, 1);
 		return days;
 	}
 	short Days_until_end_of_year()
@@ -921,7 +921,7 @@ public:
 			{
 				Actual_vacation++;
 			}
-			from = Increas_date_by_one(from);
+			from = Increase_date_by_one(from);
 		}
 		return Actual_vacation;
 	}
@@ -935,7 +935,7 @@ public:
 	//we get rid of all weekends before the first business day
 		while (Is_WeekEnd(DateFrom))
 		{
-			DateFrom = Increas_date_by_one(DateFrom);
+			DateFrom = Increase_date_by_one(DateFrom);
 		}
 
 		//here we increase the vacation dates to add all weekends to it.
@@ -946,13 +946,13 @@ public:
 			if (Is_WeekEnd(DateFrom))
 				WeekEndCounter++;
 
-			DateFrom = Increas_date_by_one(DateFrom);
+			DateFrom = Increase_date_by_one(DateFrom);
 		}
 
 		//in case the return date is week end keep adding one day util you reach business day
 		while (Is_WeekEnd(DateFrom))
 		{
-			DateFrom = Increas_date_by_one(DateFrom);
+			DateFrom = Increase_date_by_one(DateFrom);
 		}
 
 		return DateFrom;

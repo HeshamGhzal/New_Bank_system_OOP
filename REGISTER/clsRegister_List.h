@@ -15,7 +15,7 @@ private:
 		printf("%03d ", user_counter);
 
 
-		cout << "|" << left << setw(25) << user.Date << "|"
+		cout << "|" << left << setw(35) << user.Date << "|"
 			<< left << setw(10) << user.user_name << "|"
 			<< left << setw(10) << user.password << "|"
 			<< left << setw(10) << user.permission << "|"
@@ -33,15 +33,15 @@ public:
 		string sub_title = to_string(vuser.size()) + " Logins In the System";
 		clsscreen::_Drow_screen_header(title, sub_title);
 
-		cout << setw(20) << "" << string(65, '=') << endl;
+		cout << setw(20) << "" << string(75, '=') << endl;
 		cout << setw(20) << "" << "|" << setw(4) << "NO " << "|"
 
-			<< left << setw(25) << "     Date & Time" << "|"
+			<< left << setw(35) << "     Date & Time" << "|"
 			<< left << setw(10) << "user_name" << "|"
 			<< left << setw(10) << "password" << "|"
 			<< left << setw(10) << "permission" << "|"
 			<< endl;
-		cout << setw(20) << "" << string(65, '=') << endl;
+		cout << setw(20) << "" << string(75, '=') << endl;
 		if (vuser.size() == 0)
 		{
 			cout << setw(30) << "" << "\t No Register Available In the System \n" << endl;
@@ -55,7 +55,7 @@ public:
 				_Print_Register_list(u, counter++);
 			}
 		}
-		cout << setw(20) << "" << string(65, '-') << endl;
+		cout << setw(20) << "" << string(75, '-') << endl;
 	}
 
 };

@@ -65,12 +65,19 @@
         "enmode",
         "ensave",
         "faild",
+        "Hadhod",
         "permision",
         "permition",
         "prepar",
         "Regester",
         "Registar",
         "serarator",
-        "Tranactions"
+        "stdate",
+        "Tranactions",
+        "xdays",
+        "xdecades",
+        "xmonths",
+        "xweeks",
+        "xyear"
     ]
 }
