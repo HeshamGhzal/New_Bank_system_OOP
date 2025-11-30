@@ -102,7 +102,7 @@ private:
 public:
 	static void Add_new_user_screen()
 	{
-		_Drow_screen_hider("Add New User Screen");
+		_Drow_screen_header("Add New User Screen");
 		cout << setw(37) << left << "" << "Please Enter user name : ";
 		string user_name = clsinput::Read_String();
 		while (clsbank_user::Is_user_exist(user_name))

@@ -108,7 +108,7 @@ public:
 			return;
 		}
 		clsutil::cls();
-		_Drow_screen_hider("Transaction Menu Screen");
+		_Drow_screen_header("Transaction Menu Screen");
 		cout << "\n"
 			 << endl;
 		cout << setw(36) << left << "" << string(45, '*') << endl;

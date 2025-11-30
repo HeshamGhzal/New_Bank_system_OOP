@@ -20,3 +20,6 @@ int main()
     
     return 0;
 }
+
+
+// g++ Bank.cpp -std=c++17 -o Bank && ./Bank

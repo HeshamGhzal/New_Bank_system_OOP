@@ -166,7 +166,7 @@ public:
 	static void ShowMinMenuOptions()
 	{
 		clsutil::cls();
-		_Drow_screen_hider("Main Screen");
+		_Drow_screen_header("Main Screen");
 		cout << endl;
 		cout << string(33, ' ') << string(45, '*') << endl;
 		cout << string(47, ' ') << left << setw(20) << "Main menu option" << endl;

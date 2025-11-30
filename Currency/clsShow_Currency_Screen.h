@@ -82,7 +82,7 @@ public:
 	static void Show_Currency_menu()
 	{
 		string tite = "Currency Exchange Main Screen ";
-		_Drow_screen_hider(tite);
+		_Drow_screen_header(tite);
 		cout << string(33, ' ') << string(45, '-') << endl;
 		cout << string(50, ' ') << "Currency Exchange Menu" << endl;
 		cout << string(33, ' ') << string(45, '-') << endl;

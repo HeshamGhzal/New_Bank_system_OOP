@@ -41,7 +41,7 @@ public:
 	static void Show_Transfer_Screen()
 	{
 
-		_Drow_screen_hider("Transfer Screen");
+		_Drow_screen_header("Transfer Screen");
 		cout << "\nPleas Enter Account_NO you wont to transfer from : ";
 		clsbank_client sourc_client = clsbank_client::find_client(_Read_Account_number());
 		_print_client(sourc_client);

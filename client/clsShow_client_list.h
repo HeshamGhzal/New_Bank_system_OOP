@@ -35,7 +35,7 @@ public:
 		vector<clsbank_client>vclient = clsbank_client::get_clients_list();
 		string title = "Client List Screen";
 		string sub_title = to_string(vclient.size()) + " Clients Available In the System";
-		clsscreen::_Drow_screen_hider(title, sub_title);
+		clsscreen::_Drow_screen_header(title, sub_title);
 
 		cout << setw(12) << "" << string(99, '=') << endl;
 		cout << setw(12) << "" << "|" << setw(4) << "NO " << "|"

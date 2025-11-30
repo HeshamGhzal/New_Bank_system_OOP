@@ -23,7 +23,7 @@ private:
 public:
 	static void show_delete_user_screen()
 	{
-		clsscreen::_Drow_screen_hider("Delete User Screen");
+		clsscreen::_Drow_screen_header("Delete User Screen");
 		cout << "Please Enter User name : ";
 		string  User_name = clsinput::Read_String();
 		while (!clsbank_user::Is_user_exist(User_name))

@@ -31,7 +31,7 @@ public:
 		{
 			return;
 		}
-		clsscreen::_Drow_screen_hider("Find Client Screen");
+		clsscreen::_Drow_screen_header("Find Client Screen");
 		cout << "Please Enter Account Number : ";
 		string Account_number = clsinput::Read_String();
 		while (!clsbank_client::Is_client_exist(Account_number))

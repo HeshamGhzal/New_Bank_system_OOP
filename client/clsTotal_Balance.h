@@ -29,7 +29,7 @@ public:
 		vector<clsbank_client> vclient = clsbank_client::get_clients_list();
 		string Titel = "Total Clients Balance Screen";
 		string subTitel = "\t\t" + to_string(vclient.size()) + " Clients.";
-		_Drow_screen_hider(Titel, subTitel);
+		_Drow_screen_header(Titel, subTitel);
 		cout << setw(23) << left << "" << string(73, '=') << endl;
 		cout << setw(23) << left << "" << "|" << setw(4) << "NO " << "|";
 		cout << "\t " << setw(15) << left << "Account Number"

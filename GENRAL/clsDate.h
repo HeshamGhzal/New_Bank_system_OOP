@@ -4,6 +4,7 @@
 // #include<string>
 #include<iomanip>
 #include <ctime>
+#include <cstdlib>
 #include <chrono>
 #include <sstream>
 #include"clsstring.h"
@@ -18,6 +19,19 @@ private:
 	short _year = 1900;
 
 public:
+
+	// Allows the application to force a timezone by setting the TZ environment variable
+	// Example: clsdate::SetTimeZone("Africa/Cairo"); (POSIX)
+	static void SetTimeZone(const string &tz)
+	{
+#if defined(_WIN32)
+		// Windows does not use TZ environment variable in the same way; skipping
+#else
+		setenv("TZ", tz.c_str(), 1);
+		tzset();
+#endif
+	}
+
 
 	clsdate()
 	{
@@ -81,21 +95,28 @@ public:
 	{
 		cout << DateToString() << endl;
 	}
-	static string GetCurrentDateTime()
-	{
+	    static string GetCurrentDateTime()
+	    {
 		using namespace std::chrono;
 		auto now = system_clock::now();
 		time_t t = system_clock::to_time_t(now);
-		tm local_tm;
-#if defined(_MSC_VER)
+		tm local_tm{}; // initialize to zero to avoid uninitialized memory warnings
+	#if defined(_MSC_VER)
 		localtime_s(&local_tm, &t);
-#else
+	#else
 		localtime_r(&t, &local_tm);
-#endif
-		ostringstream oss;
-		oss << put_time(&local_tm, "%d-%m-%Y // %H:%M:%S");
-		return oss.str();
-	}
+	#endif
+		// Use strftime to safely include time zone name and offset if available
+		char buf[128] = {0};
+		if (strftime(buf, sizeof(buf), "%d-%m-%Y // %H:%M:%S %Z (%z)", &local_tm) == 0)
+		{
+		    // fallback: just format the date/time without TZ if buf wasn't large enough
+		    ostringstream oss;
+		    oss << put_time(&local_tm, "%d-%m-%Y // %H:%M:%S");
+		    return oss.str();
+		}
+		return string(buf);
+	    }
 
 	static short day_Order_from_Gregorian_calender(short day, short month, short year)
 	{
@@ -355,7 +376,7 @@ public:
 
 	static bool Is_Date1_Equal_Date2(clsdate date1, clsdate date2)
 	{
-		if (date1._year && date1._month == date2._month && date1._day == date2._day)
+		if (date1._year==date2._year && date1._month == date2._month && date1._day == date2._day)
 			return true;
 		return false;
 	}
@@ -580,16 +601,6 @@ public:
 	clsdate Increas_date_by_x_decades(int xdecades)
 	{
 		return Increas_date_by_x_decades(xdecades, *this);
-	}
-
-	static clsdate Increas_date_by_x_decades_faster(int xdecades, clsdate date)
-	{
-		date._year += (xdecades * 10);
-		return date;
-	}
-	clsdate Increas_date_by_x_decades_faster(int xdecades)
-	{
-		return Increas_date_by_x_decades_faster(xdecades, *this);
 	}
 
 	static clsdate Increas_date_by_one_century(clsdate date)

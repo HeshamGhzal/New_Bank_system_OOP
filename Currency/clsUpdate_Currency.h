@@ -50,7 +50,7 @@ private:
 public:
 	static void Update_currency_Screen()
 	{
-		clsscreen::_Drow_screen_hider("Update currency Screen");
+		clsscreen::_Drow_screen_header("Update currency Screen");
 		cout << "\nPlease Select :" << endl;
 		cout << "[1]Find By Code To Update" << endl;
 		cout << "[2]Find By country To Update " << endl;

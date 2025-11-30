@@ -30,7 +30,7 @@ public:
 		vector<clsbank_user>vuser = clsbank_user::get_users_list();
 		string title = "User List Screen";
 		string sub_title = to_string(vuser.size()) + " Users Available In the System";
-		clsscreen::_Drow_screen_hider(title, sub_title);
+		clsscreen::_Drow_screen_header(title, sub_title);
 
 		cout << setw(12) << "" << string(99, '=') << endl;
 		cout << setw(12) << "" << "|" << setw(4) << "NO " << "|"

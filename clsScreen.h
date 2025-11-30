@@ -11,7 +11,7 @@ class clsscreen
 {
 protected:
 
-	static void _Drow_screen_hider(string tite, string SubTitle = "")
+	static void _Drow_screen_header(string tite, string SubTitle = "")
 	{
 		cout << endl;
 		cout << string(33, ' ') << string(45, '=') << endl;

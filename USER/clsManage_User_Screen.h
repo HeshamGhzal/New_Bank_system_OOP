@@ -102,7 +102,7 @@ public:
 			return;
 		}
 		string tite = "Manage User Screen ";
-		_Drow_screen_hider(tite);
+		_Drow_screen_header(tite);
 		cout << string(33, ' ') << string(45, '-') << endl;
 		cout << string(50, ' ') << "Manage User" << endl;
 		cout << string(33, ' ') << string(45, '-') << endl;

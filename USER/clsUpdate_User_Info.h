@@ -101,7 +101,7 @@ public:
 
 	static void Show_update_user_screen()
 	{
-		clsscreen::_Drow_screen_hider("Update User Info Screen");
+		clsscreen::_Drow_screen_header("Update User Info Screen");
 
 		string User_name = clsinput::Read_String("\tpleas Enter User name : ");
 		while (!clsbank_user::Is_user_exist(User_name))

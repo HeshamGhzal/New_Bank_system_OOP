@@ -47,7 +47,7 @@ public:
 	static bool Show_Login_Screen()
 	{
 		clsutil::cls();
-		clsscreen::_Drow_screen_hider("Show Login screen");
+		clsscreen::_Drow_screen_header("Show Login screen");
 		return _login();
 	}
 

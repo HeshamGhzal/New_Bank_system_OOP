@@ -22,7 +22,7 @@ private:
 public:
 	static void Show_find_user_screen()
 	{
-		clsscreen::_Drow_screen_hider("Find User Screen");
+		clsscreen::_Drow_screen_header("Find User Screen");
 		cout << "Please Enter User Name : ";
 		string User_Name = clsinput::Read_String();
 		while (!clsbank_user::Is_user_exist(User_Name))

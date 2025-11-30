@@ -62,7 +62,7 @@ public:
 		{
 			return;
 		}
-		clsscreen::_Drow_screen_hider("Update Client Info Screen");
+		clsscreen::_Drow_screen_header("Update Client Info Screen");
 
 		string account_number = clsinput::Read_String("\tpleas Enter AccountNumber : ");
 		while (!clsbank_client::Is_client_exist(account_number))

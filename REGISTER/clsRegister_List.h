@@ -31,7 +31,7 @@ public:
 		vector<clsbank_user::sRegester_data>vuser = clsbank_user::get_Register_login_from_file();
 		string title = "Login Register list Screen\n";
 		string sub_title = to_string(vuser.size()) + " Logins In the System";
-		clsscreen::_Drow_screen_hider(title, sub_title);
+		clsscreen::_Drow_screen_header(title, sub_title);
 
 		cout << setw(20) << "" << string(65, '=') << endl;
 		cout << setw(20) << "" << "|" << setw(4) << "NO " << "|"

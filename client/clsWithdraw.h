@@ -35,7 +35,7 @@ public:
 	static void Show_Withdraw_screen()
 	{
 		clsutil::cls();
-		_Drow_screen_hider("Withdraw Screen");
+		_Drow_screen_header("Withdraw Screen");
 		string account_number = _Read_Account_number();
 		while (!clsbank_client::Is_client_exist(account_number))
 		{

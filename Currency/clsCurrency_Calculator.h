@@ -32,7 +32,7 @@ public:
 		{
 			clsutil::cls();
 			string tite = "Currency Calculator Screen ";
-			_Drow_screen_hider(tite);
+			_Drow_screen_header(tite);
 
 			clsCurrency c1 = _Get_Currency_Code("Please Enter Currency_code You wont to Covert From : ");
 			clsCurrency::Print_currency_info(c1);

@@ -23,7 +23,7 @@ public:
 		vector<clsCurrency>vCurrency = clsCurrency::Get_Currency_list();
 		string title = "Currency List Screen";
 		string sub_title = to_string(vCurrency.size()) + " Currencies Available ";
-		clsscreen::_Drow_screen_hider(title, sub_title);
+		clsscreen::_Drow_screen_header(title, sub_title);
 
 		cout << setw(12) << "" << string(96, '=') << endl;
 		cout << setw(12) << "" << "|" << setw(4) << "NO " << "|"

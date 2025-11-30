@@ -32,7 +32,7 @@ public:
 		vector<clsbank_client::stTransfer_log>vuser = clsbank_client::get_Transfers_log_list_from_file();
 		string title = "Transfer logs Screen\n";
 		string sub_title = to_string(vuser.size()) + " Transfer logs System";
-		clsscreen::_Drow_screen_hider(title, sub_title);
+		clsscreen::_Drow_screen_header(title, sub_title);
 
 		cout << setw(3) << "" << string(113, '=') << endl;
 		cout << setw(3) << "" << "|" << setw(4) << "NO " << "|"

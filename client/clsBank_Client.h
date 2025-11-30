@@ -1,32 +1,36 @@
 #pragma once
-#include<iostream>
-#include<string>
-#include<fstream>
-#include"../GENRAL/clsPerson.h"
-#include<vector>
-#include"../GENRAL/clsinput.h"
-#include"../GENRAL/Global.h"
-
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <vector>
+#include "../GENRAL/clsPerson.h"
+#include "../GENRAL/clsinput.h"
+#include "../GENRAL/Global.h"
 
 class clsbank_client : public clsperson
 {
 public:
 	struct stTransfer_log;
+
 private:
-	enum enmode { Empty_mode = 0, Update_mode = 1, add_new = 2 };
+	enum enmode
+	{
+		Empty_mode = 0,
+		Update_mode = 1,
+		add_new = 2
+	};
 	enmode _mode;
 	string _account_number;
 	string _pin_code;
 	float _account_balance;
 	bool _MarkedForDelete = false;
 
-
 	static vector<string> _spelt_each_word_in_string(string s, string separator)
 	{
 		vector<string> vs;
 		size_t pos = s.find(separator);
 		string word = "";
-		
+
 		while ((pos = s.find(separator)) != string::npos)
 		{
 			word = s.substr(0, pos);
@@ -45,8 +49,8 @@ private:
 		vector<string> vclient = _spelt_each_word_in_string(line, "#//#");
 
 		return clsbank_client(Update_mode, vclient.at(0), vclient.at(1),
-			vclient.at(2), vclient.at(3), vclient.at(4), vclient.at(5),
-			stof(vclient.at(6)));
+							  vclient.at(2), vclient.at(3), vclient.at(4), vclient.at(5),
+							  stof(vclient.at(6)));
 	}
 	static clsbank_client _get_empty_client_object()
 	{
@@ -60,8 +64,8 @@ private:
 		line += client.get_Last_Name() + separator;
 		line += client.get_Email() + separator;
 		line += client.get_Phone() + separator;
-		line += client.get_account_number()+ separator;
-		line += client.get_pin_code()+ separator;
+		line += client.get_account_number() + separator;
+		line += client.get_pin_code() + separator;
 		line += to_string(client.get_Account_Balance());
 		return line;
 	}
@@ -82,7 +86,7 @@ private:
 		MyFile.open("Client.txt", ios::out);
 		if (MyFile.is_open())
 		{
-			for (clsbank_client c : Vclients)
+			for (clsbank_client &c : Vclients)
 			{
 				if (c._MarkedForDelete == false)
 				{
@@ -93,9 +97,9 @@ private:
 			MyFile.close();
 		}
 	}
-	static vector<clsbank_client>_load_clients_from_file(string filename = "Client.txt")
+	static vector<clsbank_client> _load_clients_from_file(string filename = "Client.txt")
 	{
-		vector<clsbank_client>vclients;
+		vector<clsbank_client> vclients;
 		fstream MyFile;
 		MyFile.open(filename, ios::in);
 		if (MyFile.is_open())
@@ -113,8 +117,8 @@ private:
 
 	void _Update()
 	{
-		vector<clsbank_client>_vclients = _load_clients_from_file("Client.txt");
-		for (clsbank_client& c : _vclients)
+		vector<clsbank_client> _vclients = _load_clients_from_file("Client.txt");
+		for (clsbank_client &c : _vclients)
 		{
 			if (c.get_account_number() == _account_number)
 			{
@@ -130,27 +134,27 @@ private:
 		_add_data_line_to_file(line);
 	}
 
-	string _prepar_Transfer_log_record_line(float Transfar_amunt, clsbank_client Destnation, string serarator = "#//#")
+	string _prepar_Transfer_log_record_line(float Transfer_amunt, clsbank_client Destination, string serarator = "#//#")
 	{
 		string Transfer_record_line = "";
 		Transfer_record_line += clsdate::GetCurrentDateTime() + serarator;
 		Transfer_record_line += _account_number + serarator;
-		Transfer_record_line += Destnation._account_number + serarator;
+		Transfer_record_line += Destination._account_number + serarator;
 		Transfer_record_line += to_string(_account_balance) + serarator;
-		Transfer_record_line += to_string(Destnation._account_balance) + serarator;
-		Transfer_record_line += to_string(Transfar_amunt) + serarator;
+		Transfer_record_line += to_string(Destination._account_balance) + serarator;
+		Transfer_record_line += to_string(Transfer_amunt) + serarator;
 		Transfer_record_line += current_user.get_user_name();
-        // Transfer_record_line += "Hesham"; // Temporary stub for current_user
+		// Transfer_record_line += "Hesham"; // Temporary stub for current_user
 		return Transfer_record_line;
 	}
-	void _Register_Transfers_Log_file(float Transfar_amunt, clsbank_client Destnation)
+	void _Register_Transfers_Log_file(float Transfer_amunt, clsbank_client Destination)
 	{
 		fstream MyFile;
 		string line;
 		MyFile.open("Transfer.txt", ios::out | ios::app);
 		if (MyFile.is_open())
 		{
-			line = _prepar_Transfer_log_record_line(Transfar_amunt, Destnation);
+			line = _prepar_Transfer_log_record_line(Transfer_amunt, Destination);
 			MyFile << line << endl;
 			MyFile.close();
 		}
@@ -170,11 +174,9 @@ private:
 		return Transfer_log;
 	}
 
-
-
 public:
 	clsbank_client(enmode mode, string first_name, string last_name, string Email,
-		string phone, string account_number, string pin_code, float account_balance)
+				   string phone, string account_number, string pin_code, float account_balance)
 		: clsperson(first_name, last_name, Email, phone)
 	{
 		_mode = mode;
@@ -202,7 +204,6 @@ public:
 	{
 		return _account_number;
 	}
-	// __declspec(property(get = get_account_number)) string account_number;
 
 	void set_pin_code(string pin_code)
 	{
@@ -212,7 +213,6 @@ public:
 	{
 		return _pin_code;
 	}
-	// __declspec(property(get = get_pin_code, put = set_pin_code)) string pin_code;
 
 	void set_Account_Balance(float balance)
 	{
@@ -222,11 +222,10 @@ public:
 	{
 		return _account_balance;
 	}
-	// __declspec(property(get = get_Account_Balance, put = set_Account_Balance)) float Account_Balance;
 
 	static clsbank_client find_client(string account_number)
 	{
-		vector<clsbank_client>vclients;
+		vector<clsbank_client> vclients;
 		fstream MyFile;
 		MyFile.open("Client.txt", ios::in);
 		if (MyFile.is_open())
@@ -247,7 +246,7 @@ public:
 	}
 	static clsbank_client find_client(string account_number, string pin_code)
 	{
-		vector<clsbank_client>vclients;
+		vector<clsbank_client> vclients;
 		fstream MyFile;
 		MyFile.open("Client.txt", ios::in);
 		if (MyFile.is_open())
@@ -267,7 +266,12 @@ public:
 		}
 		return _get_empty_client_object();
 	}
-	enum ensave_result { sv_fail_empty_object = 0, sv_success = 1, sv_fail_account_number_exist = 2 };
+	enum ensave_result
+	{
+		sv_fail_empty_object = 0,
+		sv_success = 1,
+		sv_fail_account_number_exist = 2
+	};
 	ensave_result save()
 	{
 		switch (_mode)
@@ -298,14 +302,14 @@ public:
 		return sv_fail_empty_object;
 	}
 
-	static clsbank_client Get_Add_new_clien_object(string account_number)
+	static clsbank_client Get_Add_new_client_object(string account_number)
 	{
 		return clsbank_client(add_new, "", "", "", "", account_number, "", 0);
 	}
 	bool delete_client()
 	{
-		vector<clsbank_client>_vclients = _load_clients_from_file();
-		for (clsbank_client& c : _vclients)
+		vector<clsbank_client> _vclients = _load_clients_from_file();
+		for (clsbank_client &c : _vclients)
 		{
 			if (c._account_number == _account_number)
 			{
@@ -317,13 +321,13 @@ public:
 		*this = _get_empty_client_object();
 		return true;
 	}
-	static vector<clsbank_client>get_clients_list()
+	static vector<clsbank_client> get_clients_list()
 	{
 		return _load_clients_from_file();
 	}
 	static double get_total_clients_balance()
 	{
-		vector<clsbank_client>vclients = _load_clients_from_file();
+		vector<clsbank_client> vclients = _load_clients_from_file();
 		double total_balance = 0;
 
 		for (clsbank_client client : vclients)
@@ -352,9 +356,9 @@ public:
 		save();
 		return true;
 	}
-	bool Transfer(float amount, clsbank_client& Destnation_client)
+	bool Transfer(float amount, clsbank_client &Destnation_client)
 	{
-		if (amount > Destnation_client._account_balance)
+		if (amount > _account_balance)
 		{
 			return false;
 		}
@@ -364,9 +368,9 @@ public:
 		return true;
 	}
 
-	static vector < stTransfer_log > get_Transfers_log_list_from_file(string filename = "Transfer.txt")
+	static vector<stTransfer_log> get_Transfers_log_list_from_file(string filename = "Transfer.txt")
 	{
-		vector<stTransfer_log>Transfer_logs;
+		vector<stTransfer_log> Transfer_logs;
 		fstream MyFile;
 		MyFile.open(filename, ios::in);
 		if (MyFile.is_open())
@@ -381,5 +385,4 @@ public:
 		}
 		return Transfer_logs;
 	}
-
 };

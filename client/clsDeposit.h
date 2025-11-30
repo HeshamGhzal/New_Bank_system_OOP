@@ -34,7 +34,7 @@ public:
 	static void Show_Deposit_screen()
 	{
 		clsutil::cls();
-		_Drow_screen_hider("Deposit Screen");
+		_Drow_screen_header("Deposit Screen");
 		string account_number = _Read_Account_number();
 		while (!clsbank_client::Is_client_exist(account_number))
 		{

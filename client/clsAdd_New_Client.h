@@ -44,7 +44,7 @@ public:
 		{
 			return;
 		}
-		_Drow_screen_hider("Add New Client Screen");
+		_Drow_screen_header("Add New Client Screen");
 		cout << setw(37) << left << "" << "Please Enter Account Number : ";
 		string account_number = clsinput::Read_String();
 		while (clsbank_client::Is_client_exist(account_number))
@@ -53,7 +53,7 @@ public:
 				"Account Number is already exist, please enter another Account Number : ";
 			account_number = clsinput::Read_String();
 		}
-		clsbank_client client = clsbank_client::Get_Add_new_clien_object(account_number);
+		clsbank_client client = clsbank_client::Get_Add_new_client_object(account_number);
 		_Read_client_info(client);
 		clsbank_client::ensave_result save_result = client.save();
 		switch (save_result)

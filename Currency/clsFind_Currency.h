@@ -31,7 +31,7 @@ private:
 public:
 	static void Find_currency_Screen()
 	{
-		clsscreen::_Drow_screen_hider("Find currency Screen");
+		clsscreen::_Drow_screen_header("Find currency Screen");
 		cout << "Find By Code[1] OR Find By country[2]" << endl;
 		short sellction = clsinput::read_number_between<short>(1, 2);
 		switch (sellction)
